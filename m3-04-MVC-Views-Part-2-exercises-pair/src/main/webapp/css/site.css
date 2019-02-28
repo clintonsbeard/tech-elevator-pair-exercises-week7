@@ -45,6 +45,41 @@ nav li a:hover {
 	text-decoration: underline;
 }
 
+.label {
+	font-weight: bold;
+}
+
+#labels {
+	margin-right: 20px
+}
+
+#flexbox {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+section ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 0;
+}
+
+section li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 0;
+}
+
+section div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	display: inline-block;
+}
+
 section {
 	clear: both;
 	display: block;
