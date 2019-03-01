@@ -1,41 +1,32 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Recipe List View</title>
-    <link rel="stylesheet" href="css/site.css" />
-</head>
-<body>
-    <header>
-        <h1>MVC Exercises - Views Part 2: Models</h1>        
-    </header>
-    <nav>
-        <ul>
-            <li><a href="recipeTiles">Tile Layout</a></li>
-            <li><a href="recipeTable">Table Layout</a></li>
-        </ul>
-        
-    </nav>
-    <section id="main-content">
-    	<h1>Recipes</h1>
-    	<div id="flexbox">
-			<c:forEach var="recipe" items="${recipes}">
-				<div class="tile">
-					<img src="img/recipe${recipe.recipeId}.jpg" class="tile-image">
-					<c:set var="name" value="${recipe.name}" />
-					<div class="bold">${name}</div>
-					<c:set var="rating" value="${recipe.averageRating}" />
-					<fmt:formatNumber var="rating" type ="number" maxFractionDigits="0" value="${recipe.averageRating}" />
-					<div id="tile-star"><img src="img/${rating}-star.png"></div>
-					<c:set var="ingredients" value="${recipe.ingredients.size()} ingredients" />
-					<div class="ingredients">${ingredients}</div>
+	<c:import url="/WEB-INF/jsp/header.jsp">
+	    <c:param name="pageTitle" value="Recipes (Tile View)" />
+	</c:import>
+	
+   	<div id="flexbox">
+		<c:forEach var="recipe" items="${recipes}">
+			<div class="tile">
+				<c:url var="recipeImg" value="/img/recipe${recipe.recipeId}.jpg" />
+				<img src="${recipeImg}" class="tile-image">
+				<c:url var="recipeDetailUrl" value="/recipeDetails">
+					<c:param name="recipeId" value="${recipe.recipeId}" />
+				</c:url>
+				<div class="bold">
+					<a href="${recipeDetailUrl}"><c:out value="${recipe.name}" /></a>
 				</div>
-		    </c:forEach>
-		</div>
-    </section>
-</body>
-</html>
+				<div id="tile-star">
+					<fmt:formatNumber var="rating" type ="number" maxFractionDigits="0" value="${recipe.averageRating}" />
+					<c:url var="starRating" value="/img/${rating}-star.png" />
+					<img src="${starRating}">
+				</div>
+					<c:set var="ingredients" value="${recipe.ingredients.size()} ingredients" />
+				<div class="ingredients">
+					<c:out value="${ingredients}" />
+				</div>
+			</div>
+	    </c:forEach>
+	</div>
+	
+<c:import url="/WEB-INF/jsp/footer.jsp" />
