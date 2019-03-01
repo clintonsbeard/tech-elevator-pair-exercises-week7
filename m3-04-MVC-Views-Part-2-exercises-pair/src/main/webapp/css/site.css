@@ -47,10 +47,13 @@ nav li a:hover {
 
 .label {
 	font-weight: bold;
+	margin-right: 20px;
+	padding-right: 20px;
 }
 
-#labels {
-	margin-right: 20px
+.image img {
+	 width: 50%;
+	 height: auto;
 }
 
 #flexbox {
@@ -90,4 +93,63 @@ section {
 	min-height: 450px;
 	background-color: #FFF;
 	border-radius: 7px;
+}
+
+#table {
+	border-spacing: 0;
+	width: 95%;
+	align: center;
+	margin: 0 auto;
+}
+
+#table-star {
+	background-color: #D3D3D3;
+}
+
+#table-star img {
+	height: 25px;
+ 	width: auto;
+}
+
+.tile {
+	display: inline-block;
+	background-color: #CCFFCC;
+	position: relative;
+	margin: 10px;
+	height: 350px;
+}
+
+.tile-image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+#tile-star {
+	position: absolute;
+	bottom: 5px;
+	left: 5px;"
+}
+
+#tile-star img {
+	height: 25px;
+ 	width: auto;
+}
+
+.bold {
+	font-weight: bold;
+	font-size: larger;
+	text-align: left;
+	margin-left: 20px;
+}
+
+.ingredients {
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+
+.gray {
+	background-color: #D3D3D3;
 }
